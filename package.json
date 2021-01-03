@@ -1,0 +1,19 @@
+{
+  "name": "neo4j-arangodb-data-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aureliendepeyrelongue/neo4j-arangodb-data-generator.git"
+  },
+  "author": "Aurélien de Peyrelongue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aureliendepeyrelongue/neo4j-arangodb-data-generator/issues"
+  },
+  "homepage": "https://github.com/aureliendepeyrelongue/neo4j-arangodb-data-generator#readme"
+}
