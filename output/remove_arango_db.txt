@@ -1,0 +1,19 @@
+FOR m IN Men
+    REMOVE m in Men
+    
+FOR w IN Women
+    REMOVE w in Women
+
+FOR l IN LIKES
+    REMOVE l in LIKES
+
+FOR l IN LOVES
+    REMOVE l in LOVES
+
+FOR d IN DISLIKES
+    REMOVE d in DISLIKES
+
+FOR c IN IS_CLOSE_TO
+    REMOVE c in CLOSE_TO
+
+

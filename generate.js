@@ -1,10 +1,36 @@
-const GraphMaker = require("./GraphMaker.js");
-const Neo4jQueryMaker = require("./Neo4jQueryMaker.js");
-
-const gm = new GraphMaker(200);
+const GraphMaker = require("./app/GraphMaker.js");
+const Neo4jQueryMaker = require("./app/Neo4jQueryMaker.js");
+const ArangoDBQueryMaker = require("./app/ArangoDBQueryMaker.js");
+const fs = require("fs");
+const gm = new GraphMaker(100);
 
 const graph = gm.getGraph();
 
 const neo4j = new Neo4jQueryMaker(graph);
 
-console.log(neo4j.getQuery());
+const neo4jQuery = neo4j.getQuery();
+
+graph.forEach((el) => {
+    console.log(el.isCloseTo.persons.length);
+});
+fs.writeFile("./output/neo4j/neo4j_data_query.txt", neo4jQuery, function(err) {
+    if (err) return console.log(err);
+    console.log("neo4j file is written.");
+});
+
+const arangoDB = new ArangoDBQueryMaker(graph, gm.getWomen(), gm.getMen());
+
+const arangoDBQueries = arangoDB.getQuery();
+
+for (let value in arangoDBQueries) {
+    let query = arangoDBQueries[value];
+
+    fs.writeFile(
+        "./output/arangoDB/" + value + "_arangoDB_data_query.txt",
+        query,
+        function(err) {
+            if (err) return console.log(err);
+            console.log("ArangoDB " + value + " file is written.");
+        }
+    );
+}

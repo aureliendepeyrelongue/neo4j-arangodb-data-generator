@@ -12,11 +12,11 @@ class Neo4jQueryMaker {
             query += this.getRelations(el);
         });
 
-        return query;
+        return replaceLast(query, ",", "");
     }
 
     getNodeLabelAndProperties(el) {
-        return `(${el.key}:${el.gender} { first_name: "${el.firstName}", last_name: "${el.lastName}", email : "${el.email}",  age : "${el.age}" }),
+        return `(${el.key}:${el.gender} { first_name: "${el.firstName}", last_name: "${el.lastName}", email : "${el.email}",  age : ${el.age} }),
         `;
     }
 
@@ -35,12 +35,18 @@ class Neo4jQueryMaker {
             `;
         });
         el.isCloseTo.persons.forEach((target) => {
-            str += `(${el.key})-[:IS_CLOSE_TO]-(${target.key}),
+            str += `(${el.key})-[:IS_CLOSE_TO]->(${target.key}),
             `;
         });
 
         return str;
     }
+}
+
+function replaceLast(x, y, z) {
+    var a = x.split("");
+    a[x.lastIndexOf(y)] = z;
+    return a.join("");
 }
 
 module.exports = Neo4jQueryMaker;
