@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/aureliendepeyrelongue/neo4j-arangodb-data-generator/issues"
   },
-  "homepage": "https://github.com/aureliendepeyrelongue/neo4j-arangodb-data-generator#readme"
+  "homepage": "https://github.com/aureliendepeyrelongue/neo4j-arangodb-data-generator#readme",
+  "dependencies": {
+    "uniqid": "^5.2.0"
+  }
 }

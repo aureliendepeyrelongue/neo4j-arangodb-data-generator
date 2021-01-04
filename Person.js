@@ -1,29 +1,29 @@
 class Person {
-    constructor(firstName, lastName, gender, email) {
-
-        this.firstName = firstName
-        this.lastName = lastName
-        this.gender = gender
-        this.email = email
-            // random age
-        this.age = getRandomIntFromInterval(22, 36)
-            // relations 
+    constructor(firstName, lastName, gender, email, key) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+        this.key = key;
+        // random age
+        this.age = getRandomIntFromInterval(22, 36);
+        // relations
         this.likes = {
-            max: getRandomIntFromInterval(1, 60),
-            persons: []
-        }
+            max: getRandomIntFromInterval(1, 30),
+            persons: [],
+        };
         this.loves = {
             max: getRandomIntFromInterval(1, 30),
-            persons: []
-        }
+            persons: [],
+        };
         this.dislikes = {
             max: getRandomIntFromInterval(1, 20),
-            persons: []
-        }
+            persons: [],
+        };
         this.isCloseTo = {
-            max: getRandomIntFromInterval(1, 40),
-            persons: []
-        }
+            max: getRandomIntFromInterval(1, 10),
+            persons: [],
+        };
     }
 }
 
@@ -31,5 +31,4 @@ function getRandomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-module.exports = Person
+module.exports = Person;
