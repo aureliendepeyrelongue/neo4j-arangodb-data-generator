@@ -69,7 +69,7 @@ class ArangoDBQueryMaker {
         this.isCloseToQuery += `]
                             
         FOR i in isCloseToEdges
-            INSERT d INTO IS_CLOSE_TO
+            INSERT i INTO IS_CLOSE_TO
         `;
 
         return {

@@ -5,9 +5,9 @@ class Person {
         this.gender = gender;
         this.email = email;
         this.key = key;
-        // random age
+        // generate random age
         this.age = getRandomIntFromInterval(22, 36);
-        // relations
+        // set relations random
         this.likes = {
             max: getRandomIntFromInterval(1, 10),
             persons: [],
